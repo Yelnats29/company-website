@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= staffName %>
+    </title>
 </head>
 <%- include('./partials/nav') %>
-<body>
 
-</body>
+    <body>
+        <h1>
+            <%= staffName %>
+        </h1>
+        <h2>Staff Details</h2>
+        <ul>
+
+            <li>
+                <p>Title: <%= staff.title %>
+                </p>
+            </li>
+            <li>
+                <p>Years of Experience: <%= staff.yearsOfExperience %>
+                </p>
+            </li>
+            <li>
+                <p>Contact: <%= staff.contact %>
+                </p>
+            </li>
+            <li>
+                <p>Bio: <%= staff.bio %>
+                </p>
+            </li>
+        </ul>
+    </body>
+
 </html>

@@ -91,7 +91,8 @@ app.get("/past-work", (req, res) => {
 
 app.get("/past-work/:project", (req, res) => {
   const projectName = req.params.project;
-  const projectItems = COMPANY.pastWork.filter(item => item.project.toLowerCase() === projectName.toLowerCase()
+  const projectItems = COMPANY.pastWork.filter(
+    (item) => item.project.toLowerCase() === projectName.toLowerCase()
   );
   const capitalizedProjectName =
     projectName.charAt(0).toUpperCase() + projectName.slice(1);
@@ -109,10 +110,16 @@ app.get("/staffList", (req, res) => {
 });
 
 app.get("/staffList/:staff", (req, res) => {
-  const staff = req.params.staffList;
-  const capitalizedStaffName = staff.charAt(0).toUpperCase() + staff.slice(1);
+  const staffName = req.params.staff;
+  const selectedStaff = COMPANY.staffList.find(
+    (item) => item.name.toLowerCase() === staffName.toLowerCase()
+  );
+  const capitalizedStaffName =
+    staffName.charAt(0).toUpperCase() + staffName.slice(1);
   res.render("staff.ejs", {
-    staff: capitalizedStaffName,
+    staff: selectedStaff,
+    staffName: capitalizedStaffName,
+    COMPANY,
   });
 });
 
