@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%= projectName %></title>
-  </head>
-  <%- include('./partials/nav') %>
-  <body>
-    <h1><%= projectName %></h1>
-    <h2>Overview</h2>
-    <ul>
-      <% pastWork.forEach(item=> { %>
-      <li>
-        <p>Location: <%= item.location %></p>
-        <p>Duration: <%= item.duration %></p>
-        <p>Description: <%= item.description %></p>
-      </li>
-      <% }); %>
-    </ul>
-  </body>
+    <title>
+        <%= projectName %>
+    </title>
+</head>
+<%- include('./partials/nav') %>
+
+    <body>
+        <h1>
+            <%= projectName %>
+        </h1>
+        <h2>Overview</h2>
+        <ul>
+
+            <li>
+                <p>Location: <%= project.location %>
+                </p>
+            </li>
+            <li>
+                <p>Duration: <%= project.duration %>
+                </p>
+            </li>
+            <li>
+                <p>Description: <%= project.description %>
+                </p>
+            </li>
+        </ul>
+    </body>
+
 </html>

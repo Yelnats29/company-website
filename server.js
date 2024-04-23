@@ -91,20 +91,22 @@ app.get("/past-work", (req, res) => {
 
 app.get("/past-work/:project", (req, res) => {
   const projectName = req.params.project;
-  //const projectItems = COMPANY.pastWork.filter(item => item.project === projectName)
+  const projectItems = COMPANY.pastWork.filter(item => item.project.toLowerCase() === projectName.toLowerCase()
+  );
   const capitalizedProjectName =
     projectName.charAt(0).toUpperCase() + projectName.slice(1);
   res.render("project.ejs", {
+    project: projectItems[0], // Pass the first item of the filtered array
     projectName: capitalizedProjectName,
-    pastWork: COMPANY.pastWork,
+    COMPANY,
   });
 });
 
 app.get("/staffList", (req, res) => {
-    res.render("staffList.ejs", {
-        staffList: COMPANY.staffList
-      });
+  res.render("staffList.ejs", {
+    staffList: COMPANY.staffList,
   });
+});
 
 app.get("/staffList/:staff", (req, res) => {
   const staff = req.params.staffList;
@@ -114,10 +116,9 @@ app.get("/staffList/:staff", (req, res) => {
   });
 });
 
-
 app.get("/company-history", (req, res) => {
   res.render("company-history.ejs", {
-    COMPANY
+    COMPANY,
   });
 });
 
@@ -128,7 +129,7 @@ app.get("/contact-us", (req, res) => {
 });
 
 app.get("/links", (req, res) => {
-  res.render("links.ejs")
+  res.render("links.ejs");
 });
 
 app.listen(3000, () => {
